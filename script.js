@@ -1,8 +1,8 @@
 // Elements
-constenvelope = document.getElementById("envelope-container");
-constletter = document.getElementById("letter-container");
-constnoBtn = document.querySelector(".no-btn");
-constyesBtn = document.querySelector(".btn[alt=yes]");
+const envelope = document.getElementById("envelope-container");
+const letter = document.getElementById("letter-container");
+const noBtn = document.querySelector(".no-btn");
+const yesBtn = document.querySelector(".btn[alt=yes]");
 
 consttitle = document.getElementById("letter-title");
 constcatImg = document.getElementById("letter-cat");
@@ -54,5 +54,4 @@ yesBtn.addEventListener("click", () => {
 
     buttons.style.display = "none";
 
-    finalText.style.display = "block";
 });
