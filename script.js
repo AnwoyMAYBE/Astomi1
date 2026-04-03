@@ -1,139 +1,58 @@
-body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-image: url("heart-bg.jpg");
-    font-family: "Pixelify Sans", sans-serif;
-}
+// Elements
+constenvelope = document.getElementById("envelope-container");
+constletter = document.getElementById("letter-container");
+constnoBtn = document.querySelector(".no-btn");
+constyesBtn = document.querySelector(".btn[alt=yes]");
 
-/* Envelope Screen */
-#envelope-container {
-    text-align: center;
-    cursor:pointer;
-}
+consttitle = document.getElementById("letter-title");
+constcatImg = document.getElementById("letter-cat");
+constbuttons = document.getElementById("letter-buttons");
 
-@keyframes pulse {
-    0% {
-        transform:scale(1);
+
+// click Envelope
+
+envelope.addEventListener("click", () => {
+    envelope.style.display ="none";
+    letter.style.display = "flex";
+
+    setTimeout( () => {
+        document.querySelector(".letter-window").classList.add("open");
+    },50);
+
+});
+
+// Logic to make YES btn to grow
+
+letyesScale = 1;
+
+yesBtn.style.position = "relative"
+yesBtn.style.transformOrigin = "center center";
+yesBtn.style.transition = "transform 0.3s ease";
+
+noBtn.addEventListener("click", () => {
+    yesScale += 2;
+
+    if (yesBtn.style.position !== fixed) {
+        yesBtn.style.position = "fixed";
+        yesBtn.style.top = "50";
+        yesBtn.style.left = "50";
+        yesBtn.style.transform = 'translate(-50%, -50%) scale(${yesScale})';
+    }else{
+        yesBtn.style.transform = 'translate(-50%, -50%) scale(${yesScale})';
     }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
+});
 
-#envelope{
-    width: 200px;
-    animation: pulse 1.5s infinite;
-    cursor: pointer;
-}
+// YES is clicked
 
-#letter-container{
-    display: none;
-    position:fixed;
-    inset: 0;
-    justify-content: center;
-    align-items: center;
-}
+yesBtn.addEventListener("click", () => {
+    title.textContent = "Yipppeeeee!";
 
-.letter-window{
-    width: 90vw;
-    max-width: 800px;
-    aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-image: url("window.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-radius: 12px;
-    gap: 1px;
-    padding-top: 180px;
+    catImg.src = "cat_dance.gif";
 
-    transform: scale(1.2);
-    opacity: 0;
-    transition: transform 0.6s ease, opacity 0.6s ease;
-}
+    document.querySelector
+    {(".letter-window")}classList.add("final");
 
-.letter-window.open {
-    transform: scale(1);
-    opacity: 1;
-}
+    buttons.style.display = "none";
 
-h1 {
-    font-size: 30px;
-    margin:0;
-}
-
-p {
-    font-size: 40px;
-}
-
-/* Cat */
-
-.cat {
-    width: 250px;
-    margin: 10px 0;
-    transition: width 0.4s ease;
-}
-
-.letter-window.final .cat {
-    width: 180px;
-}
-
-/* buttons */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    position: relative;
-}
-
-.no-wrapper{
-    position:relative;
-}
-
-.btn {
-    width: 120px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.yes-btn,
-.no-btn {
-width: 120px;
-height: auto;
-display: inline-block;
-}
-
-.yes-btn {
-    position: relative;
-    z-index: 2;
-    transform-origin: center center;
-    transition: transform 0.3s ease;
-}
-
-.no-btn {
-    z-index: 1;
-    position: relative;
-    transition: transform 0.15s ease;
-    cursor: default;
-}
-
-.final-text{
-    font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255,240,240,0.5);
-    border-radius: 12px;
-}
+    finalText.style.display = "block";
+});
